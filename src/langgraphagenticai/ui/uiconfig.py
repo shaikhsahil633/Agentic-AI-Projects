@@ -5,8 +5,8 @@ class Config:
         self.config=ConfigParser()
         self.config.read(config_file)
 
-    def get_llm_option(self):
-        return self.config["DEFAULT"].get("LLM_OPTION").split(", ")
+    def get_llm_options(self):
+        return self.config["DEFAULT"].get("LLM_OPTIONS").split(", ")
     
     def get_usecase_options(self):
         return self.config["DEFAULT"].get("USECASE_OPTIONS").split(", ")
@@ -15,8 +15,8 @@ class Config:
         return self.config["DEFAULT"].get("GROQ_MODEL_OPTIONS").split(", ")
     
     def get_page_title(self):
-        return self.config["DEFAULT"].get("PAGE TITLE")
+        return self.config["DEFAULT"].get("PAGE_TITLE")
     
-    
+
     
     
