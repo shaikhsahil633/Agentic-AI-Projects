@@ -1,15 +1,14 @@
 from langgraph.graph import START,END,MessagesState,StateGraph
 from langgraph.prebuilt import tools_condition,ToolNode
 from langchain_core.prompts import ChatMessagePromptTemplate
-import datetime 
-from src.langgraphagenticai.state.state import state
+from src.langgraphagenticai.state.state import State
 from src.langgraphagenticai.nodes.basic_chatbot_node import BasicChatNode
 
 class GraphBuilder:
 
     def __init__(self,model): 
         self.llm= model
-        self.graph_builder = StateGraph(state)
+        self.graph_builder = StateGraph(State)
 
     def basic_chatbot_build_graph(self):
         """

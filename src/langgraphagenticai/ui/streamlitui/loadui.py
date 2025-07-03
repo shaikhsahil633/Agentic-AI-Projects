@@ -68,7 +68,7 @@ class LoadStreamlitUI:
 
             if "state" not in st.session_state:
                 st.session_state.state = self.initialize_session()
-            self.render_requirements()
+            # self.render_requirements()
             
             
         
