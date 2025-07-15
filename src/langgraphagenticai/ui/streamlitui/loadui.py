@@ -61,7 +61,7 @@ class LoadStreamlitUI:
                 
                 # Validate API key
                 if not self.user_controls["GROQ_API_KEY"]:
-                    st.warning("⚠️ Please enter your GROQ API key to proceed. Don't have? refer : https://app.tavily.com/home")
+                    st.warning("⚠️ Please enter your GROQ API key to proceed. Don't have? refer : https://groq.com/")
 
             # Use case selection
             self.user_controls["selected_usecase"] = st.selectbox("Select Usecase",usecase_options)
