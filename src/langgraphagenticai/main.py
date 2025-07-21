@@ -2,6 +2,7 @@ import streamlit as st
 import json 
 from src.langgraphagenticai.ui.streamlitui.loadui import LoadStreamlitUI
 from src.langgraphagenticai.LLMS.groqllm import GroqLLM
+from src.langgraphagenticai.LLMS.openai import OpenaiLLM
 from src.langgraphagenticai.graph.graph_builder import GraphBuilder
 from src.langgraphagenticai.ui.streamlitui.display_result import DisplayResultStreamlit
 
@@ -30,8 +31,16 @@ def load_langgraph_agenticai_app():
     
     if user_message:
         try:
-            # Configure LLM
-            obj_llm_config = GroqLLM(user_controls_input=user_input)
+            # Determine LLM provider
+            llm_provider = user_input.get("selected_llm", "").lower()
+
+            if llm_provider == "openai":
+                obj_llm_config = OpenaiLLM(user_controls_input=user_input)
+            elif llm_provider == "groq":
+                obj_llm_config = GroqLLM(user_controls_input=user_input)
+            else:
+                st.error("Error: Invalid or missing LLM provider selected.")
+                return
             model = obj_llm_config.get_llm_model()
 
             if not model:
